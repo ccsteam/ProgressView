@@ -14,7 +14,7 @@ public class ProgressHUD {
     /**
      Disables user`s interactions and shows activity indicator.
      */
-    class public func showHUD() {
+    public class func showHUD() {
         let hudView = ProgressView()
         applicationRootView().addSubview(hudView)
     }
@@ -22,7 +22,7 @@ public class ProgressHUD {
     /**
      Reenables user`s interactions and remove activity indicator.
      */
-    class public func hideHUD() {
+    public class func hideHUD() {
         let huds = applicationRootView().subviews.filter { (view) -> Bool in
             return view.isKindOfClass(ProgressView)
         }
@@ -30,7 +30,7 @@ public class ProgressHUD {
     }
 
     /// Returns application rootview.
-    class private func applicationRootView() -> UIView {
+    private class func applicationRootView() -> UIView {
         let delegate = UIApplication.sharedApplication().delegate!
         let rootController = delegate.window!!.rootViewController!
         return rootController.view
