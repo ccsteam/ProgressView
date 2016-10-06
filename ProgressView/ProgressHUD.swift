@@ -31,9 +31,12 @@ public class ProgressHUD {
 
     /// Returns application rootview.
     private class func applicationRootView() -> UIView {
-        let delegate = UIApplication.sharedApplication().delegate!
-        let rootController = delegate.window!!.rootViewController!
-        return rootController.view
+        let window = UIApplication.sharedApplication().keyWindow!
+        var topController = window.rootViewController!
+        while let presentedViewController = topController.presentedViewController {
+            topController = presentedViewController
+        }
+        return topController.view
     }
 
 }
